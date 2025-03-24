@@ -2,6 +2,7 @@
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render
 import json
 import os
 import openai
@@ -30,3 +31,5 @@ def chat(request):
             return JsonResponse({"error": str(e)}, status=500)
     else:
         return JsonResponse({"error": "Only POST method is allowed"}, status=405)
+def chat_page(request):
+    return render(request, "chat.html")

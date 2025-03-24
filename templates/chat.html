@@ -1,0 +1,45 @@
+<!-- templates/chat.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aithena Chat</title>
+    <script src="/static/chat.js" defer></script>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 2rem;
+      }
+      .chatbox {
+        max-width: 600px;
+        margin: auto;
+      }
+      .bubble {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 10px;
+      }
+      .user {
+        background: #e0f7fa;
+        text-align: right;
+      }
+      .bot {
+        background: #f1f8e9;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chatbox" id="chat"></div>
+    <form id="chat-form">
+      <input
+        type="text"
+        id="message"
+        placeholder="Ask Aithena something..."
+        required
+        style="width: 80%"
+      />
+      <button type="submit">Send</button>
+    </form>
+  </body>
+</html>
