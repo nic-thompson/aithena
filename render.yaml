@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: aithena
+    env: docker
+    plan: free
+    dockerContext: .
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: DJANGO_ALLOWED_HOSTS
+        value: aithena.onrender.com
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: OPENAI_API_KEY
+        sync: false
