@@ -1,5 +1,10 @@
 
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render
+
+def chat_page(request):
+    return render(request, "chat.html")
+
 @csrf_exempt
 def chat(request):
     if request.method == "POST":
