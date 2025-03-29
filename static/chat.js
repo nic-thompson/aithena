@@ -10,8 +10,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const message = input.value.trim();
     if (!message) return;
 
-    appendMessage('user', message);
-    input.value = '';
+    function appendMessage(sender, text) {
+      const chat = document.getElementById('chat');
+      const div = document.createElement('div');
+
+      const baseStyle = 'px-4 py-2 max-w-[75%] rounded-lg inline-block';
+      const userStyle = 'bg-blue-100 self-end ml-auto text-right';
+      const botStyle = 'bg-green-100 self-start mr-auto text-left';
+
+      div.className = `flex ${
+        sender === 'user' ? userStyle : botStyle
+      } ${baseStyle}`;
+      div.textContent = text;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'flex';
+      wrapper.appendChild(div);
+
+      chat.appendChild(wrapper);
+      chat.scrollTop = chat.scrollHeight;
+    }
 
     console.log('Submitting message:', message); // ✅ check this in console
 

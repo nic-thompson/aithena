@@ -1,45 +1,29 @@
-<!-- templates/chat.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Aithena Chat</title>
     <script src="/static/chat.js" defer></script>
-    <style>
-      body {
-        font-family: sans-serif;
-        margin: 2rem;
-      }
-      .chatbox {
-        max-width: 600px;
-        margin: auto;
-      }
-      .bubble {
-        margin: 10px 0;
-        padding: 10px;
-        border-radius: 10px;
-      }
-      .user {
-        background: #e0f7fa;
-        text-align: right;
-      }
-      .bot {
-        background: #f1f8e9;
-        text-align: left;
-      }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
-    <div class="chatbox" id="chat"></div>
-    <form id="chat-form">
-      <input
-        type="text"
-        id="message"
-        placeholder="Ask Aithena something..."
-        required
-        style="width: 80%"
-      />
-      <button type="submit">Send</button>
-    </form>
+  <body class="bg-gray-100 font-sans">
+    <div class="max-w-2xl mx-auto mt-10 p-4 bg-white shadow rounded-lg">
+      <div id="chat" class="space-y-2 mb-4"></div>
+      <form id="chat-form" class="flex gap-2">
+        <input
+          id="message"
+          type="text"
+          placeholder="Ask Aithena something..."
+          class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-300"
+          required
+        />
+        <button
+          type="submit"
+          class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+        >
+          Send
+        </button>
+      </form>
+    </div>
   </body>
 </html>
