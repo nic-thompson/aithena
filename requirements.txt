@@ -1,4 +1,15 @@
-asgiref==3.8.1
+# Core dependencies
 Django==5.1.7
-sqlparse==0.5.3
+gunicorn==21.2.0
 whitenoise==6.9.0
+
+# Django's dependencies
+asgiref==3.8.1
+sqlparse==0.5.3
+
+# OpenAI integration
+openai==1.14.3
+
+# Optional: helpful in dev and testing
+tqdm==4.67.1
+
