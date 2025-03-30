@@ -1,13 +1,13 @@
 # Dockerfile
 
-# Base image
+# Use slim Python base image
 FROM python:3.11-slim
 
-# Set environment vars
+# Environment settings for production
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-# Set work directory
+# Create app directory
 WORKDIR /app
 
 # Install system dependencies
@@ -18,13 +18,13 @@ RUN apt-get update && apt-get install -y \
 
 # Install Python dependencies
 COPY requirements.txt .
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy project
+# Copy entire project
 COPY . .
 
+# Collect static files for WhiteNoise
 RUN python manage.py collectstatic --noinput
 
-# Run the application
+# Run with Gunicorn on port 8000 (Render expects this!)
 CMD ["gunicorn", "aithena.wsgi:application", "--bind", "0.0.0.0:8000"]
