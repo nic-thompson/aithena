@@ -1,4 +1,7 @@
 import os
+import os
+print("🔑 OPENAI_API_KEY:", os.getenv("OPENAI_API_KEY"))
+
 import json
 import traceback
 import openai
